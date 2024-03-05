@@ -22,7 +22,15 @@ class UpdateEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'description' => 'required|text',
+            'category_id' => 'required|numeric|exists:categories,id',
+            'start_date' => 'required|date',
+            'adress' => 'required|string|max:255',
+            'image' => 'image',
+            'type' => 'required|in:automatique_reservation,manual_reservation',
+            'status' => 'required|in:accepted,rejected,pending',
+            'places' => 'required|numeric',
         ];
     }
 }

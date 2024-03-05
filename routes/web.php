@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('categories');
 });
+
+Route::resources([
+    'categories' => CategoryController::class,
+    'Events' => EventController::class,
+]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

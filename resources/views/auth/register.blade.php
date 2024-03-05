@@ -143,7 +143,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="contact-form bg-dark">
-                        <h1 class="text-white add-letter-space mb-5">Rgister</h1>
+                        <h1 class="text-white add-letter-space mb-5">Sing Up</h1>
                         <form method="POST" class="needs-validation" novalidate>
                             @csrf
                             <div class="row">
@@ -180,9 +180,14 @@
                                         <p class="invalid-feedback">Your confirmation password is required!</p>
                                     </div>
                                 </div>
-                                
+                                <div class="col-md-6">
+                                    <div class="form-group mb-5">
+                                        <input type="checkbox" name="role_id" value="2" id="role_id">
+                                        <label for="role_id" class="text-black-300">If you want to register as an organizer check this?</label>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-sm btn-primary">Send Now <img src="images/arrow-right.png" alt=""></button>
+                                    <button type="submit" class="btn btn-sm btn-primary">Register <img src="images/arrow-right.png" alt=""></button>
                                     <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                                         {{ __('Already registered?') }}
                                     </a>

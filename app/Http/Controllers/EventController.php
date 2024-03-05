@@ -29,7 +29,8 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        //
+        $image = uniqid() . '.' .$request->file('image')->getClientOriginalExtension();
+        $request->file('image')->move('images/', $image);
     }
 
     /**
