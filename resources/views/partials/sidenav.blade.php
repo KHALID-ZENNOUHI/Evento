@@ -1,7 +1,7 @@
 <!-- start of sidenav -->
 <aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
     <a class="navbar-brand" href="index.html" class="logo">
-        <img src="images/logo.png" alt="">
+        <h1 class="text-white">Evento</h1>
     </a>
     <!-- end of navbar-brand -->
 
@@ -25,12 +25,7 @@
                 </div>
                 <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Pages</a>
             </li>
-            <li class="nav-item mt-3">
-                <select class="custom-select bg-transparent rounded-0 text-white shadow-none" id="pick-lang">
-                    <option selected value="en">English</option>
-                    <option value="fr">French</option>
-                </select>
-            </li>
+            
         </ul>
     </div>
     <!-- end of navbar -->

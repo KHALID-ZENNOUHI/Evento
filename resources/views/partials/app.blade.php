@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Galaxy - Personal Blog Template</title>
+    <title>@yield('title', 'Evento')</title>
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,4 +35,27 @@
     
     <!-- START main-wrapper -->
     <section class="d-flex">
+        <!-- start of sidenav -->
+        @include('partials.sidenav')
+        <!-- end of sidenav -->
+        <!-- start of mobile-nav -->
+        @include('partials.mobile-nav')
+        <!-- end of mobile-nav -->
+
+        @yield('content')
+        {{-- @include('partials.search-form') --}}
+    <!-- start of footer -->
+        @include('partials.footer-block')
+    <!-- end of footer -->
+    </section>
+    <!-- END main-wrapper -->
+
+    <!-- All JS Files -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
   

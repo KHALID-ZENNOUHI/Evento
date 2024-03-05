@@ -1,3 +1,4 @@
+<div class="main-content">
 <!-- start of mobile-nav -->
 <header class="mobile-nav pt-4">
     <div class="container">
