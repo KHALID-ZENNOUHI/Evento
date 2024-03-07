@@ -23,13 +23,13 @@ class StoreEventRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'description' => 'required|text',
+            'description' => 'required|string',
             'category_id' => 'required|numeric|exists:categories,id',
+            'price' => 'required|numeric',
             'start_date' => 'required|date',
             'adress' => 'required|string|max:255',
-            'image' => 'required|image',
+            'image' => 'required',
             'type' => 'required|in:automatique_reservation,manual_reservation',
-            'status' => 'required|in:accepted,rejected,pending',
             'places' => 'required|numeric',
         ];
     }

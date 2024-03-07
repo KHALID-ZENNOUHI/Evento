@@ -182,8 +182,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group mb-5">
-                                        <input type="checkbox" name="role_id" value="2" id="role_id">
-                                        <label for="role_id" class="text-black-300">If you want to register as an organizer check this?</label>
+                                        <input type="radio" name="role_id" value="2" id="role_id">
+                                        <label for="role_id" class="text-black-300">organizer</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-5">
+                                        <input type="radio" name="role_id" value="3" id="role_id">
+                                        <label for="role_id" class="text-black-300">user</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

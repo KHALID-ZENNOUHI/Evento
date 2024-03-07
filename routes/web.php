@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,15 +17,21 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('categories');
-});
+Route::get('/', [EventController::class, 'index']);
 
 Route::resources([
     'categories' => CategoryController::class,
-    'Events' => EventController::class,
+    'events' => EventController::class,
 ]);
+Route::post('/events/search', [EventController::class, 'search'])->name('events.search');
+
+
+Route::patch('/admin/events/accept/{event}', [AdminController::class, 'accept'])->name('admin.events.accept');
+Route::patch('/admin/events/reject/{event}', [AdminController::class, 'reject'])->name('admin.events.reject');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/events', [AdminController::class, 'events']);
+Route::get('/organizer/events', [OrganizerController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

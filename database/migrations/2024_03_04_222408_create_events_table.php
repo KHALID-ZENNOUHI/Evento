@@ -17,7 +17,10 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->date('start_date');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('price');
+            $table->timestamp('start_date');
             $table->string('adress');
             $table->string('image');
             $table->enum('type', ['automatique_reservation', 'manual_reservation'])->default('automatique_reservation');
