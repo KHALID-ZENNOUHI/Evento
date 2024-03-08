@@ -28,6 +28,7 @@
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                     <div class="form-group mb-5">
                                         <label for="lastName" class="text-black-300">Event Date</label>

@@ -22,7 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role_id',
     ];
 
     /**
@@ -44,17 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    public function roles()
+    public function events()
     {
-        return $this->hasMany(Role::class);
+        return $this->hasMany(Event::class);
     }
-
-    public function permissions()
-    {
-        return $this->hasMany(Permission::class);
-    }
-
     public function reservations()
     {
         return $this->hasMany(Reservation::class);

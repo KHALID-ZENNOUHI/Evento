@@ -108,7 +108,7 @@ class EventController extends Controller
 
     public function search(Request $request)
     {
-        $events = Event::where('title', 'like', '%' . $request->search . '%')->get();
+        $events = Event::where('title', 'like', '%' . $request->search . '%')->paginate(3);
         $categories = Category::all();
         return view('events.index', compact('events', 'categories'));
     }

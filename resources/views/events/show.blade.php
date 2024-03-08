@@ -3,7 +3,6 @@
 @section('content')
             <div class="container py-4 my-5">
 
-                
                 <div class="row justify-content-between">
                     <div class="col-lg-10">
                         <img class="img-fluid" src="/images/{{$event->image}}" alt="">
@@ -26,10 +25,31 @@
                        <div class="widget">
                             <h1 class="widget-title text-white d-inline-block mb-4"></h1>
                             <div class="d-block">
-                                <a class="btn btn-primary" href="/reservation/{{$event->id}}">Take Your Place<img src="images/arrow-right.png" alt=""></a>
+                                @if ($event->type == 'manual_reservation')
+                                    <form method="POST" action="{{route('reservations', $event->id)}}">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button class="btn btn-primary" type="submit">Book Now<img src="images/arrow-right.png" alt=""></button>
+                                    </form>
+                                @else
+                                    <form method="POST" action="/booking/{{$event->id}}">
+                                        @csrf
+                                        <button class="btn btn-primary" type="submit">Book Now<img src="images/arrow-right.png" alt=""></button>
+                                    </form>
+                                @endif
                             </div>
                             <!-- end buttons -->
                         </div>
+                        @if (Session::has('ticket'))
+                            <form method="POST" action="/booking/ticket/{{$event->id}}">
+                                @csrf
+                                <button class="btn btn-success" type="submit">Download your ticket<img src="images/arrow-right.png" alt=""></button>
+                            </form>
+                            <h2 class="center text-center mt-3">{{Session::get('ticket')}}</h2> 
+                        @endif
+                        @if (Session::has('success'))
+                                        <h2 class="center text-center">{{Session::get('success')}}</h2>
+                        @endif 
 
                     
                         

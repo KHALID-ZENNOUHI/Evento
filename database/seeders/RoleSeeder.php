@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Permission;
-use App\Models\Role;
+// use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,8 +14,8 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $adminRole = Role::create(['name' => 'admin', 'guard_name' => 'web']);
-        $organizerRole = Role::create(['name' => 'organizer', 'guard_name' => 'web']);
-        $userRole = Role::create(['name' => 'user', 'guard_name' => 'web']);
+        $adminRole = \Spatie\Permission\Models\Role::create(['name' => 'admin', 'guard_name' => 'web']);
+        $organizerRole = \Spatie\Permission\Models\Role::create(['name' => 'organizer', 'guard_name' => 'web']);
+        $userRole = \Spatie\Permission\Models\Role::create(['name' => 'user', 'guard_name' => 'web']);
     }
 }

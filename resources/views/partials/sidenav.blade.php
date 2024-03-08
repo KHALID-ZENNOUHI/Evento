@@ -16,15 +16,18 @@
             </li>
             @endif
             @auth
-                @if(Auth::user()->role_id == '2')
+                @hasrole('organizer')
                 <li class="nav-item @@about">
                     <a class="nav-link text-white px-0" href="/events/create">Add Event</a>
                 </li>
                 <li class="nav-item @@contact">
                     <a class="nav-link text-white px-0" href="/organizer/events">Events Status</a>
                 </li>
-                @endif
-                @if(Auth::user()->role_id == '1')
+                <li class="nav-item @@contact">
+                    <a class="nav-link text-white px-0" href="/organizer/reservations">Reservations</a>
+                </li>
+                @endhasrole
+                @hasrole('admin')
                 <li class="nav-item @@Dashboard accordion">
                     <div id="drop-menu" class="drop-menu collapse">
                         <a class="d-block" href="#">Statistic</a>
@@ -34,7 +37,7 @@
                     </div>
                     <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Dashboard</a>
                 </li>
-                @endif
+                @endhasrole
                 <form method="POST"  action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">Logout</button>

@@ -8,7 +8,7 @@
                     @foreach($events as $event)
                     <div class="card post-item bg-transparent border-0 mb-5">
                         <a href="post-details.html">
-                            <img class="card-img-top rounded-0" src="/images/{{$event->image}}" alt="">
+                            <img class="card-img-top rounded-1" src="/images/{{$event->image}}" alt="">
                         </a>
                         <div class="card-body px-0">
                             <h2 class="card-title">
