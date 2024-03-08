@@ -1,6 +1,7 @@
-<form class="search-form" action="#">
+<form method="POST" class="search-form" action="{{route('events.search')}}">
+    @csrf
     <div class="input-group">
-        <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Search here">
+        <input type="search" name="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Search here">
         <div class="input-group-append">
             <button class="btn" type="submit">
                 <span class="fas fa-search"></span>
@@ -38,7 +39,7 @@
 </div>
 <div class="card post-item bg-transparent border-0 mb-5">
 <a href="post-details.html">
-    <img class="card-img-top rounded-0" src="images/post/post-sm/01.png" alt="">
+    <img class="card-img-top rounded-0" src="/images/post/post-sm/01.png" alt="">
 </a>
 <div class="card-body px-0">
     <h2 class="card-title">
@@ -54,13 +55,13 @@
             <a class="ml-1" href="#">Photography</a>
         </li>
     </ul>
-    <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+    <a href="post-details.html" class="btn btn-primary">Read More <img src="/images/arrow-right.png" alt=""></a>
 </div>
 </div>
 <!-- end of widget-post-item -->
 <div class="card post-item bg-transparent border-0 mb-5">
 <a href="post-details.html">
-    <img class="card-img-top rounded-0" src="images/post/post-sm/02.png" alt="">
+    <img class="card-img-top rounded-0" src="/images/post/post-sm/02.png" alt="">
 </a>
 <div class="card-body px-0">
     <h2 class="card-title">
@@ -76,7 +77,7 @@
             <a class="ml-1" href="#">Photography</a>
         </li>
     </ul>
-    <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+    <a href="post-details.html" class="btn btn-primary">Read More <img src="/images/arrow-right.png" alt=""></a>
 </div>
 </div>
 <!-- end of widget-post-item -->

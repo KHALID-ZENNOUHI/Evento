@@ -169,7 +169,7 @@
           <div class="row">
             <div class="col-md-10">
               <div class="contact-form bg-dark">
-                <h1 class="text-white add-letter-space mb-5">Login</h1>
+                <h1 class="text-white add-letter-space mb-5">Sing In</h1>
                 <form method="POST" class="needs-validation" novalidate>
                   @csrf
                   <div class="row">

@@ -1,6 +1,6 @@
 <!-- start of sidenav -->
 <aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
-    <a class="navbar-brand" href="index.html" class="logo">
+    <a class="navbar-brand" href="/events" class="logo">
         <h1 class="text-white">Evento</h1>
     </a>
     <!-- end of navbar-brand -->
@@ -8,23 +8,42 @@
     <div class="navbar navbar-dark my-4 p-0 font-primary">
         <ul class="navbar-nav w-100">
             <li class="nav-item @@home">
-                <a class="nav-link text-white px-0 pt-0" href="index.html">Home</a>
+                <a class="nav-link text-white px-0 pt-0" href="/">Home</a>
             </li>
-            <li class="nav-item @@about">
-                <a class="nav-link text-white px-0" href="about.html">About</a>
+            @if(!Auth::user())
+            <li class="nav-item @@home">
+                <a class="nav-link text-white px-0 pt-0" href="/login">Login</a>
             </li>
-            <li class="nav-item @@contact">
-                <a class="nav-link text-white px-0" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item @@pages accordion">
-                <div id="drop-menu" class="drop-menu collapse">
-                    <a class="d-block @@home2" href="index-2.html">Home 2</a>
-                    <a class="d-block @@category" href="category.html">Category</a>
-                    <a class="d-block @@postDetails" href="post-details.html">Post Details</a>
-                    <a class="d-block @@pnp" href="privacy.html">Privacy &amp; Policy</a>
-                </div>
-                <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Pages</a>
-            </li>
+            @endif
+            @auth
+                @hasrole('organizer')
+                <li class="nav-item @@about">
+                    <a class="nav-link text-white px-0" href="/events/create">Add Event</a>
+                </li>
+                <li class="nav-item @@contact">
+                    <a class="nav-link text-white px-0" href="/organizer/events">Events Status</a>
+                </li>
+                <li class="nav-item @@contact">
+                    <a class="nav-link text-white px-0" href="/organizer/reservations">Reservations</a>
+                </li>
+                @endhasrole
+                @hasrole('admin')
+                <li class="nav-item @@Dashboard accordion">
+                    <div id="drop-menu" class="drop-menu collapse">
+                        <a class="d-block" href="#">Statistic</a>
+                        <a class="d-block" href="/admin/events">Events</a>
+                        <a class="d-block" href="/categories">Categories</a>
+                        <a class="d-block" href="#"></a>
+                    </div>
+                    <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Dashboard</a>
+                </li>
+                @endhasrole
+                <form method="POST"  action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @endauth
+            
             
         </ul>
     </div>
