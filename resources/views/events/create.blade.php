@@ -32,7 +32,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group mb-5">
                                         <label for="lastName" class="text-black-300">Event Date</label>
-                                        <input type="datetime-local" name="start_date" id="lastName" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" placeholder="Anderson" required>
+                                        <input type="datetime-local" name="start_date" id="lastName" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" min="{{ date('Y-m-d\TH:i') }}" placeholder="Anderson" required>
                                         @error('date')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror

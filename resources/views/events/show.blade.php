@@ -25,6 +25,7 @@
                        <div class="widget">
                             <h1 class="widget-title text-white d-inline-block mb-4"></h1>
                             <div class="d-block">
+                            @if(Auth::user())
                                 @if ($event->type == 'manual_reservation')
                                     <form method="POST" action="{{route('reservations', $event->id)}}">
                                         @csrf
@@ -38,7 +39,11 @@
                                     </form>
                                 @endif
                             </div>
+                            
                             <!-- end buttons -->
+                            @else
+                            <a href="/login"><button class="btn btn-primary" type="button">Book Now<img src="images/arrow-right.png" alt=""></button></a>
+                            @endif
                         </div>
                         @if (Session::has('ticket'))
                             <form method="POST" action="/booking/ticket/{{$event->id}}">
