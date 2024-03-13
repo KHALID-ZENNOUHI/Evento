@@ -37,7 +37,7 @@
                     <h1 class="text-center">No event found</h1>
                     @endif
                     <!-- end of post-item -->
-                    <div class="d-flex justify-content-center mb-3">
+                    <div class="d-flex justify-content-center mb-5">
                         {{ $events->links() }}
                     </div>
                     

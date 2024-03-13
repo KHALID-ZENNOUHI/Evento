@@ -14,11 +14,28 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function ()
+    {
+    
+    }
     public function index()
     {
-        $events = Event::where('status', 'accepted')->paginate(3);
-        $categories = Category::all();
-        return view('events.index', compact('events', 'categories'));
+        
+        if (Auth::check()) {
+            $events = Event::where('status', 'accepted')
+                ->where('start_date', '>', now())
+                ->where('places', '>', 0)
+                ->where('user_id', '!=', Auth::user()->id)
+                ->latest()->paginate(3);
+            $categories = Category::all();
+            return view('events.index', compact('events', 'categories'));
+        } else {
+            $events = Event::where('status', 'accepted')
+                ->where('start_date', '>', now())
+                ->where('places', '>', 0)
+                ->latest()->paginate(3);
+            return view('events.index', compact('events'));
+        }
     }
 
     /**

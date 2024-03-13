@@ -40,17 +40,17 @@
                 @foreach($reservations as $reservation)
                 <tr>
                   <th scope="row">{{$reservation->id}}</th>
-                  <td>{{$reservation->user->name}}</td>
-                  <td>{{$reservation->user->email}}</td>
-                  <td>{{$reservation->event->title}}</td>
+                  <td>{{$reservation->name}}</td>
+                  <td>{{$reservation->email}}</td>
+                  <td>{{$reservation->title}}</td>
                     <td>
                       <div class="row">
-                        <form method="POST" action="/reservation/{{$reservation->id}}">
+                        <form method="POST" action="/reservations/reject/{{$reservation->id}}">
                             @csrf
                             @method('PATCH')
                           <button type="submit" class="btn btn-danger">Reject</button>
                         </form>
-                        <form method="POST" action="/reservation/{{$reservation->id}}">
+                        <form method="POST" action="/reservations/accept/{{$reservation->id}}">
                             @csrf
                             @method('PATCH')
                           <button type="submit" class="btn btn-success">Accept</button>

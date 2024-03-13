@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
+use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -10,7 +13,14 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $countUsers = User::all()->count();
+        $users = User::all();
+        $events = Event::all()->count();
+        $app_events = Event::where('status', 'accepted')->count();
+        $rej_events = Event::where('status', 'rejected')->count();
+        $categories = Category::all()->count();
+        $reservations = Reservation::all()->count();
+        return view('admin.index', compact('users', 'categories', 'app_events', 'rej_events', 'reservations', 'events', 'countUsers'));
     }
 
     public function events()

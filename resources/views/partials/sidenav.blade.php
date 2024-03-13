@@ -1,6 +1,6 @@
 <!-- start of sidenav -->
 <aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
-    <a class="navbar-brand" href="/events" class="logo">
+    <a class="navbar-brand" href="/" class="logo">
         <h1 class="text-white">Evento</h1>
     </a>
     <!-- end of navbar-brand -->
@@ -16,6 +16,9 @@
             </li>
             @endif
             @auth
+                <li class="nav-item @@about">
+                    <a class="nav-link text-white px-0" href="/reservations/yours">Your Reservations</a>
+                </li>
                 @hasrole('organizer')
                 <li class="nav-item @@about">
                     <a class="nav-link text-white px-0" href="/events/create">Add Event</a>
@@ -30,8 +33,8 @@
                 @hasrole('admin')
                 <li class="nav-item @@Dashboard accordion">
                     <div id="drop-menu" class="drop-menu collapse">
-                        <a class="d-block" href="#">Statistic</a>
-                        <a class="d-block" href="/admin/events">Events</a>
+                        <a class="d-block" href="/dashboard">Statistic</a>
+                        <a class="d-block" href="/dashboard/events">Events</a>
                         <a class="d-block" href="/categories">Categories</a>
                         <a class="d-block" href="#"></a>
                     </div>
@@ -40,7 +43,8 @@
                 @endhasrole
                 <form method="POST"  action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit">Logout</button>
+                    <a class="nav-link text-white" href="http://localhost/logout" onclick="event.preventDefault();
+                                                this.closest('form').submit();">Log Out</a>
                 </form>
             @endauth
             
